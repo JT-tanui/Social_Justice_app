@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Citizen Engagement Platform is a web application designed to facilitate social justice and community engagement. Users can create and view petitions, participate in forums, and stay updated on trending topics and issues.
+The Citizen Engagement Platform is a web application designed to facilitate social justice and community engagement. Users can create and view petitions, participate in forums, and stay updated on trending topics and issues. This platform aims to empower citizens by providing them with a space to voice their concerns and collaborate on solutions.
 
 ## Features
 
@@ -70,8 +70,54 @@ The Citizen Engagement Platform is a web application designed to facilitate soci
     Open your browser and navigate to `http://localhost:3000`.
 
 ## Directory Structure
-citizen-engagement-platform/ ├── backend/ │ ├── config/ │ │ └── db.js │ ├── controllers/ │ │ ├── authController.js │ │ ├── petitionController.js │ │ └── forumController.js │ ├── routes/ │ │ ├── authRoutes.js │ │ ├── petitionRoutes.js │ │ └── forumRoutes.js │ ├── public/ │ ├── server.js │ └── package.json ├── frontend/ │ ├── public/ │ ├── src/ │ │ ├── actions/ │ │ │ └── petitionActions.js │ │ ├── components/ │ │ │ ├── HomePage.js │ │ │ └── ... │ │ ├── reducers/ │ │ │ └── petitionReducer.js │ │ ├── styles/ │ │ │ └── Homepage.css │ │ ├── App.js │ │ ├── index.js │ │ └── ... │ ├── package.json ├── README.md └── ...
 
+```
+citizen-engagement-platform/
+├── backend/
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── petitionController.js
+│   │   └── forumController.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── petitionRoutes.js
+│   │   └── forumRoutes.js
+│   ├── public/
+│   ├── server.js
+│   └── 
+
+package.json
+
+
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── actions/
+│   │   │   └── petitionActions.js
+│   │   ├── components/
+│   │   │   ├── HomePage.js
+│   │   │   └── ...
+│   │   ├── reducers/
+│   │   │   └── petitionReducer.js
+│   │   ├── styles/
+│   │   │   └── Homepage.css
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── ...
+│   ├── 
+
+package.json
+
+
+├── 
+
+README.md
+
+
+└── ...
+```
 
 ## API Endpoints
 
@@ -90,6 +136,20 @@ citizen-engagement-platform/ ├── backend/ │ ├── config/ │ │ �
 - **GET** `/api/forums`: Fetch all forums
 - **POST** `/api/forums`: Create a new forum
 
+## Testing
+
+To run tests, use the following commands:
+
+```bash
+# Run backend tests
+cd backend
+npm test
+
+# Run frontend tests
+cd ../frontend
+npm test
+```
+
 ## Contributing
 
 1. Fork the repository.
@@ -105,5 +165,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any inquiries, please contact [tanuijobs11@gmail.com](mailto:your-email@example.com).
-
+For any inquiries, please contact [tanuijobs11@gmail.com](mailto:tanuijobs11@gmail.com).
+```
