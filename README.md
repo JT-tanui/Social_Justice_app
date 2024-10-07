@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Citizen Engagement Platform is a web application designed to facilitate social justice and community engagement. Users can create and view petitions, participate in forums, and stay updated on trending topics and issues. This platform aims to empower citizens by providing them with a space to voice their concerns and collaborate on solutions.
+The Citizen Engagement Platform is a web application designed to facilitate social justice and community engagement. Users can view petitions, participate in forums, and stay updated on trending topics and issues. This platform aims to empower citizens by providing them with a space to voice their concerns and collaborate on solutions.
 
 ## Features
 
