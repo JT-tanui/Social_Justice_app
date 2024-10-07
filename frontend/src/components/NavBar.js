@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <div className="header">
       <div className="header-left">
-        <h1>Trending Petitions</h1>
+        <h1>Plixke</h1>
         <div className="search-container">
           <input type="text" placeholder="Search..." className="search-bar" />
           <FaSearch className="search-icon" />
