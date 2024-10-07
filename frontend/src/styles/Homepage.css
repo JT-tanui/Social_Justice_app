@@ -31,11 +31,33 @@ body {
   justify-content: center;
 }
 
+.search-container {
+  position: relative;
+}
+
 .search-bar {
-  width: 50%;
-  padding: 5px;
+  width: 60%;
+  padding: 5px 10px;
   border-radius: 20px;
   border: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.header-center .menu-item {
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.header-center .menu-item:hover {
+  text-decoration: underline;
 }
 
 .header-right {
@@ -62,6 +84,32 @@ body {
   border-radius: 50%;
 }
 
+.profile-menu {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu .menu-item {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.dropdown-menu .menu-item:hover {
+  background-color: #f8f9fa;
+}
+
 .container {
   display: flex;
   margin: 20px;
@@ -72,36 +120,102 @@ body {
   padding: 20px;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1da1f2;
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 20px;
+}
+
+.sidebar-item h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.sidebar-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.card-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-actions {
+  padding: 10px;
+  background-color: #f5f8fa;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.card-actions:hover {
+  background-color: #e1e8ed;
 }
 
 .main-content {
-  width: 60%;
+  flex: 1;
   padding: 20px;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .card {
   background-color: #ffffff;
   padding: 20px;
-  margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.card-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+.card-header {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
 
+.card-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.card-footer {
+  margin-top: 10px;
+}
+
 .card h2 {
-  margin: 0 0 10px 0;
+  margin: 0;
+  font-size: 18px;
 }
 
 .card p {
-  margin: 0 0 20px 0;
+  margin: 10px 0;
 }
 
 .card-actions {
@@ -148,4 +262,42 @@ body {
 
 .petition-item button:hover {
   background-color: #0d95e8;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* Small screen styles */
+@media (max-width: 768px) {
+  .header-center {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .profile-menu {
+    display: none;
+  }
+
+  .menu-icon + .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+  }
+
+  .menu-icon + .dropdown-menu .menu-item {
+    padding: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border-bottom: 1px solid #0d95e8;
+  }
+
+  .menu-icon + .dropdown-menu .menu-item:hover {
+    background-color: #0d95e8;
+  }
 }

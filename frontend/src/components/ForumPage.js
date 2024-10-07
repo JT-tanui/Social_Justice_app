@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { io } from 'socket.io-client';
 
-const ForumPage = ({ match }) => {
+const ForumPage = () => {
+  const { petitionId } = useParams();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const socket = io('http://localhost:4000');
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`/api/forums/${match.params.petitionId}`);
+        const response = await axios.get(`/api/forums/${petitionId}`);
         setComments(response.data);
       } catch (err) {
         console.error(err);
@@ -16,11 +20,21 @@ const ForumPage = ({ match }) => {
     };
 
     fetchComments();
-  }, [match.params.petitionId]);
+
+    socket.emit('join', petitionId);
+    socket.on('comments', (newComments) => {
+      setComments(newComments);
+    });
+
+    return () => {
+      socket.emit('leave', petitionId);
+      socket.off();
+    };
+  }, [petitionId]);
 
   const handleAddComment = async () => {
     try {
-      await axios.post(`/api/forums/${match.params.petitionId}`, { text: newComment });
+      await axios.post(`/api/forums/${petitionId}`, { text: newComment });
       setComments([...comments, { text: newComment, votes: 0 }]);
       setNewComment('');
     } catch (err) {
@@ -28,12 +42,25 @@ const ForumPage = ({ match }) => {
     }
   };
 
+  const handleUpvote = (commentId) => {
+    socket.emit('upvote', commentId);
+  };
+
+  const handleDownvote = (commentId) => {
+    socket.emit('downvote', commentId);
+  };
+
   return (
-    <div>
+    <div className="forum-page">
       <h1>Forum</h1>
       <ul>
         {comments.map((comment, index) => (
-          <li key={index}>{comment.text}</li>
+          <li key={index}>
+            <p>{comment.text}</p>
+            <p>Upvotes: {comment.votes}</p>
+            <button onClick={() => handleUpvote(comment.id)}>Upvote</button>
+            <button onClick={() => handleDownvote(comment.id)}>Downvote</button>
+          </li>
         ))}
       </ul>
       <input
