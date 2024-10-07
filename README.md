@@ -52,6 +52,10 @@ The Citizen Engagement Platform is a web application designed to facilitate soci
 
     - Create a MySQL database.
     - Update the database configuration in `backend/config/db.js`.
+    - Import the database dump:
+      ```bash
+      mysql -u yourusername -p yourdatabase < path/to/dump.sql
+      ```
 
 4. **Run the application**:
 
